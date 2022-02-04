@@ -1,0 +1,19 @@
+{
+  "name": "websocket-app",
+  "version": "1.0.0",
+  "description": "demo app with websocket support",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "author": "",
+  "files": [
+    "index.mjs",
+    "index.html"
+  ],
+  "license": "GPL-2.0-only",
+  "dependencies": {
+    "express": "^4.17.2",
+    "ws": "^8.4.2"
+  }
+}

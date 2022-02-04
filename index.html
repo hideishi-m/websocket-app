@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>websocket app</title>
+		<style>
+.button {
+	width: 500px;
+	height: 250px;
+	font-size: 100pt;
+}
+		</style>
+	</head>
+	<body>
+		<button type="button" class="button" id="clickButton">Click!</button>
+		<script>
+window.onload = function () {
+	const proto = document.location.protocol.replace('http', 'ws');
+	const host = document.location.host;
+	console.log(`connecting to ${proto}//${host}`);
+	const socket = new WebSocket(`${proto}//${host}`);
+	socket.addEventListener('open', function (event) {
+		socket.send('Hello!');
+	});
+	socket.addEventListener('message', function (event) {
+		console.log(event.data);
+	});
+	const button = document.getElementById('clickButton');
+	button.addEventListener('click', function (event) {
+		socket.send('Click!');
+	});
+}
+		</script>
+	</body>
+</html>
